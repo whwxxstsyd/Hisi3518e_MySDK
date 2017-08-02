@@ -1,0 +1,35 @@
+LOCAL_PATH := $(call my-dir)
+
+#------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= libStringParser.a
+LOCAL_SRCS		:= $(LOCAL_PATH)/string_parser.c
+LOCAL_CFLAGS	:= -Werror
+LOCAL_LDFLAGS	:= -lstdc++ -pthread
+LOCAL_LIBS		:= libNormal.a libHash.a
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))
+
+#------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= test_string_parser
+LOCAL_SRCS		:= $(LOCAL_PATH)/test_string_parser.cpp
+LOCAL_CFLAGS	:= -Werror
+LOCAL_LDFLAGS	:= -lstdc++ -pthread
+LOCAL_LIBS		:= libStringParser.a
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+#$(call add-target-into-build, $(LOCAL_TARGET))

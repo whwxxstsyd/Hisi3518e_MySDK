@@ -1,0 +1,22 @@
+LOCAL_PATH := $(call my-dir)
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= platform_hisi_test
+LOCAL_SRCS		:= $(LOCAL_PATH)/platform_hi3518e_test.cpp
+LOCAL_CFLAGS	:= -Werror	
+LOCAL_LDFLAGS	:= -pthread -ldl 
+LOCAL_LIBS		:= libPlatformTask.a libTaskRtsp.a libTaskBase.a  libBootSaveDefault.a
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+fuck := $(LOCAL_OBJS:%.o=%.P)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@mkdir -p $(TEST_APP_DIR)
+	@mv $(APP_DIR)/$@ $(TEST_APP_DIR)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))

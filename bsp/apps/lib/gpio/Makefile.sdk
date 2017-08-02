@@ -1,0 +1,35 @@
+LOCAL_PATH := $(call my-dir)
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= libHiGpio.a
+LOCAL_SRCS   := $(LOCAL_PATH)/hi_gpio.cpp
+LOCAL_CFLAGS	:= -I$(PLATFORM_DIR)/apps/include $(HI_CFLAGS)
+LOCAL_LDFLAGS	:= -pthread
+LOCAL_LIBS		:= libNormal.a libIpc.a libTimer.a
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= test_gpio
+LOCAL_SRCS   := $(LOCAL_PATH)/test_gpio.cpp
+LOCAL_CFLAGS	:= -I$(PLATFORM_DIR)/apps/include $(HI_CFLAGS)
+LOCAL_LDFLAGS	:= -pthread
+LOCAL_LIBS		:= libHiGpio.a libHashParser.a
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+#$(call add-target-into-build, $(LOCAL_TARGET))

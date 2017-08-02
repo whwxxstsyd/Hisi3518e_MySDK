@@ -1,0 +1,78 @@
+LOCAL_PATH := $(call my-dir)
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= sys_restore
+LOCAL_SRCS   :=$(LOCAL_PATH)/sys_restore.cpp
+LOCAL_CFLAGS	:= -Werror
+LOCAL_LDFLAGS	:= -pthread -lcrypt
+LOCAL_LIBS		:= libTaskRestore.a
+ifeq ($(WITH_BACKUP_ROOTFS), y)
+LOCAL_LIBS    += libUboot.a
+endif
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= sys_restore_backup
+LOCAL_SRCS   := $(LOCAL_PATH)/sys_restore_backup.cpp $(LOCAL_PATH)/task_upgrade_backup.cpp
+LOCAL_CFLAGS	:= -Werror
+LOCAL_LDFLAGS	:= -pthread -lcrypt
+LOCAL_LIBS		:= libTaskRestore.a libUboot.a
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@mv $(APP_DIR)/$@ $(BACKUP_APP_DIR)
+	@echo "Build $@ Done"
+	
+ifeq ($(WITH_BACKUP_ROOTFS),y)
+$(call add-target-into-build, $(LOCAL_TARGET))
+endif
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= libTaskRestore.a
+LOCAL_SRCS   := $(wildcard $(LOCAL_PATH)/task_*.cpp)
+NONE_SRCS   := $(LOCAL_PATH)/task_upgrade_backup.cpp
+LOCAL_CFLAGS	:= -Werror
+LOCAL_LDFLAGS	:= -pthread 
+LOCAL_LIBS		:= libIpc.a libParamOpt.a libTaskBase.a libMd5.a libNormal.a	\
+									libHiGpio.a libBootSaveDefault.a libAvBuffer.a libSocket.a	\
+									libCgiServer.a
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= test_upgrade
+LOCAL_SRCS   := $(LOCAL_PATH)/test_upgrade.cpp
+LOCAL_CFLAGS	:= -Werror
+LOCAL_LDFLAGS	:= -pthread 
+LOCAL_LIBS		:= 
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+#$(call add-target-into-build, $(LOCAL_TARGET))

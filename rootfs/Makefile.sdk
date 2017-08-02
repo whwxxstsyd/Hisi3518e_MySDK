@@ -1,0 +1,12 @@
+LOCAL_PATH:=$(call my-dir)
+
+include $(CLEAR_VARS)
+
+.PHONY: prepare_rootfs
+
+prepare_rootfs:
+	rm -rf $(ROOTFS_OUT_DIR)
+	rm -rf $(BACKUP_ROOTFS_OUT_DIR)
+	@$(SDK_TOPDIR)/rootfs/prepare_rootfs.sh
+
+$(call add-target-into-build, prepare_rootfs)

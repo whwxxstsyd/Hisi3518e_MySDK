@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>IPCamera Admin</title>
+<link type="text/css" rel="stylesheet" href="css/start/jquery-ui-1.9.2.custom.min.css"/>
+<link type="text/css" rel="stylesheet" href="css/common.css"/>
+<link type="text/css" rel="stylesheet" href="css/playback.css"/>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+
+</head>
+<body>
+<div class="sidebar" id="playback_sidebar">
+	<ul class="input_group">
+		<li>
+			<span><script>document.write(str_label_date)</script>:</span>
+			<input type="text" readonly="readonly" id="datepicker"/>
+		</li>
+		<li>
+			<span><script>document.write(str_label_startTime)</script>:</span>
+			<input type="text" value="00:00:00" id="startTime"/>
+		</li>
+		<li>
+			<span><script>document.write(str_label_endTime)</script>:</span>
+			<input type="text" value="23:59:59" id="endTime"/>
+		</li>
+		<li>
+			<span><script>document.write(str_label_recType)</script>:</span>
+			<select id="recType">
+			<option value="0"><script>document.write(str_label_allRecType)</script></option>
+			<option value="1"><script>document.write(str_label_manualRec)</script></option>
+			<option value="2"><script>document.write(str_label_alarmRec)</script></option>
+			</select>
+		</li>
+	</ul>
+	<div align="center"><span class="common_btn" style="margin:10px 0;" id="search"><script>document.write(str_btntxt_search)</script></span></div>
+	<ul class="search_result" id="searchRes"></ul>
+</div>
+</body>

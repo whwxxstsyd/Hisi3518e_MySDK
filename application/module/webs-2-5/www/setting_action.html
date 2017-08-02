@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IPCamera</title>
+<link type="text/css" rel="stylesheet" href="css/start/jquery-ui-1.9.2.custom.min.css"/>
+<link type="text/css" rel="stylesheet" href="css/ipcamera_frame_common.css"/>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/action.js"></script>
+<style type="text/css">
+table.schedule td.selectAll {
+	background: #999;
+}
+#alarmSchedule table{
+	width:100%;
+	background:#79bfe4;
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+#alarmSchedule td{
+	border:1px solid;
+	text-align:center;
+	cursor:pointer;
+}
+#alarmSchedule td.selected{
+	background:#4791C5;
+}
+#alarmSchedule td.selectRow{
+	background:#79bfe4;
+}
+span.sdsupportmsg{
+	display:none;
+	float:right;
+}
+</style>
+</head>
+<body>
+<table class="tab_data">
+    <thead>
+        <th colspan="2" class="titlebar">
+            <a id="save"><script>document.write(str_save)</script></a>
+            <a id="refresh" href="javascript:location.reload();"><script>document.write(str_refresh)</script></a>
+        </th>
+    </thead>
+    <tbody>
+    		<!--		/* È¥µôemail¹¦ÄÜ */
+        <tr>
+            <td class="paramName"><script>document.write(str_emailAlarm)</script></td>
+            <td class="paramValue">
+                <ul class="switch" id="emailAlarm_switch">
+                    <li><script>document.write(str_disable)</script></li>
+                    <li class="switch_icon">&nbsp;</li>
+                    <li><script>document.write(str_enable)</script></li>
+                    <div class="cb"></div>
+                </ul>
+            </td>
+        </tr>
+       	-->
+        <tr>
+            <td class="paramName"><script>document.write(str_ftpAlarm)</script></td>
+            <td class="paramValue">
+                <ul class="switch" id="ftpAlarm_switch">
+                    <li><script>document.write(str_disable)</script></li>
+                    <li class="switch_icon">&nbsp;</li>
+                    <li><script>document.write(str_enable)</script></li>
+                    <div class="cb"></div>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="paramName"><script>document.write(str_audioAlarm)</script></td>
+            <td class="paramValue">
+                <ul class="switch" id="audioAlarm_switch">
+                    <li><script>document.write(str_disable)</script></li>
+                    <li class="switch_icon">&nbsp;</li>
+                    <li><script>document.write(str_enable)</script></li>
+                    <div class="cb"></div>
+                </ul>
+            </td>
+        </tr>        
+            <td class="paramName"><script>document.write(str_saveImgToSD)</script></td>
+            <td class="paramValue">
+                <ul class="switch" id="saveImgToSD_switch">
+                    <li><script>document.write(str_disable)</script></li>
+                    <li class="switch_icon">&nbsp;</li>
+                    <li><script>document.write(str_enable)</script></li>
+                    <div class="cb"></div>
+                </ul>
+                <span class="sdsupportmsg"><script>document.write(str_tips_recneedsdsupport)</script></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="paramName"><script>document.write(str_saveVideoToSD)</script></td>
+            <td class="paramValue">
+                <ul class="switch" id="saveVideoToSD_switch">
+                    <li><script>document.write(str_disable)</script></li>
+                    <li class="switch_icon">&nbsp;</li>
+                    <li><script>document.write(str_enable)</script></li>
+                    <div class="cb"></div>
+                </ul>
+                <span class="sdsupportmsg"><script>document.write(str_tips_recneedsdsupport)</script></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="paramName"><script>document.write(str_snapNumber)</script></td>
+            <td class="paramValue">
+                <select id="snapCount">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <strong><script>document.write(str_alarmTime)</script></strong>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" id="alarmSchedule">&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

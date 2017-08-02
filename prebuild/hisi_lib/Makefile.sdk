@@ -1,0 +1,16 @@
+LOCAL_PATH	:= $(call my-dir)
+
+include $(CLEAR_VARS)
+
+LOCAL_TARGET	:= prebuild_hisi_lib
+LOCAL_SRCS	:= usr
+
+.PHONY: $(LOCAL_TARGET)
+
+include $(BUILD_PREBUILD)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	$(call prebuild-links)
+	@echo "Copy $@ Done"
+
+#$(call add-target-into-build, $(LOCAL_TARGET))

@@ -1,0 +1,35 @@
+LOCAL_PATH := $(call my-dir)
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= libSmartLink.a
+LOCAL_SRCS   := $(LOCAL_PATH)/smart_link.c
+LOCAL_CFLAGS	:= -I$(MY_APP_INC) -Werror
+LOCAL_LDFLAGS	:= -lpthread -lm -lstdc++
+LOCAL_LIBS		:= libNormal.a libParamOpt.a
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))	
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= test_smartlink
+LOCAL_SRCS   := $(LOCAL_PATH)/test_smart_link.c
+LOCAL_CFLAGS	:= -I$(MY_APP_INC) -Werror
+LOCAL_LDFLAGS	:= -lpthread -lm -lstdc++
+LOCAL_LIBS		:= libSmartLink.a
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+#$(call add-target-into-build, $(LOCAL_TARGET))	

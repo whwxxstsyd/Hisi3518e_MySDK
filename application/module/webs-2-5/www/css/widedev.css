@@ -1,0 +1,64 @@
+.dev_wrap{
+	width:100%;
+	display:table;
+	vertical-align:middle;
+	border:1px solid #98C9ED;
+	background:#f9f9f9;
+	padding:10px 0px;
+}
+.dev_wrap > ul{
+	display:block;
+	width:100%;
+	margin-left:10px;
+}
+/*
+ul.devs{
+	text-align:center;
+	display:table-row;
+}
+*/
+ul.devs > li{
+	float:left;
+	width:210px;
+	height:139px;
+	background:url(../images/sys_wideDev_add_bg.png) no-repeat center center;
+	margin:5px;
+	cursor:pointer;
+}
+ul.devs li.isset{
+	background:#cdcdcd;
+}
+ul.devs li.issetting{
+	background:orange;
+}
+ul.devs li.isset span, ul.devs li.issetting span{
+	display:inline-block;
+	width:85px;
+	text-align:center;
+	margin-top:4px;
+}
+ul.devs li.isset dt span, ul.devs li.issetting dt span{
+	display:inline-block;
+	float:left;
+	width:85px;
+	text-align:center;
+	margin-top:4px;
+}
+fieldset label{
+	display:inline-block;
+	width:120px;
+	text-align:right;
+}
+ul.devs li.isset span.del, ul.devs li.issetting span.del{
+	display:none;
+	float:right;
+	width:24px;
+	margin-right:4px;
+	font-weight:bold;
+}
+ul.devs li.isset:hover span.del, ul.devs li.issetting:hover span.del{
+	display:inline-block;
+}
+#modify_dialog{
+	display:none;
+}

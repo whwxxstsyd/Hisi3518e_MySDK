@@ -1,0 +1,52 @@
+# readme:	固件输出通过设备型号(CAMERA_MODEL)和OEM信息区分(OEM_INFO)
+
+menu "camera model menu" 
+
+config CAMERA_MODEL
+	string "camera_model"
+	default "241AA"
+	help
+		please define your camera model	
+		
+choice 
+	prompt "select network"
+	default ONLY_WIFI
+	help
+		Select the camera sensor
+		
+	config ONLY_WIFI
+		bool "only wifi"
+		
+	config ONLY_ETH
+		bool "only eth"
+		
+	config BOTH_NET
+		bool "both net"				
+endchoice		
+		
+config WITH_AUDIO
+	bool "with audio"
+	default N
+	help
+		define audio			
+		
+config WITH_PTZ
+	bool "with ptz"
+	default N
+	help
+		define ptz					
+endmenu	
+
+config CAMERA_VENDOR
+	string "camera vendor"
+	default "zowee"
+	help
+		please define your vendor info		
+		
+config OEM_INFO
+	string "oem_info"
+	default "zowee"
+	help
+		please define your oem info			
+		
+		

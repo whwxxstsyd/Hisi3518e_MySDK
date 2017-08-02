@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IPCamera</title>
+<link type="text/css" rel="stylesheet" href="css/ipcamera_frame_common.css"/>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/factory.js"></script>
+<style type="text/css">
+input[type="text"],input[type="password"]{
+	width:200px;
+}
+</style>
+</head>
+<body>
+<table class="tab_data">
+<thead>
+    <th colspan="2" class="titlebar">
+    <a id="save"><script>document.write(str_save)</script></a>
+    <a id="refresh" href="javascript:location.reload();"><script>document.write(str_refresh)</script></a>
+    </th>
+</thead>
+<tbody>
+				<!--					静态信息					-->
+<tr><td colspan="2">&nbsp;</td></tr>				
+<tr>
+	<td class="paramName">git header</td>
+	<td class="paramValue" id="git_header">&nbsp;</td>
+</tr>
+<tr>
+	<td class="paramName"><script>document.write(str_softver)</script></td>
+	<td class="paramValue" id="fm_version">&nbsp;</td>
+</tr>
+<tr>
+	<td class="paramName"><script>document.write(str_webuiver)</script></td>
+	<td class="paramValue" id="web_version">&nbsp;</td>
+</tr>
+<tr>
+	<td class="paramName"><script>document.write(str_runtime)</script></td>
+	<td class="paramValue" id="sys_runtime">&nbsp;</td>
+</tr>
+			<!--					杂项信息				-->
+<tr><td colspan="2">&nbsp;</td></tr>			
+<tr>
+	<td class="paramName"><script>document.write(str_devmodel)</script></td>
+	<td class="paramValue"><input type="text" id="dev_model"/></td>
+</tr>	
+<tr>
+	<td class="paramName"><script>document.write(str_oem_info)</script></td>
+  <td class="paramValue"><input type="text" id="oem_info"/></td>
+</tr>	
+			<!--					P2P信息				-->
+<tr><td colspan="2">&nbsp;</td></tr>
+<tr>
+	<td class="paramName">p2p_type</td>
+	<td class="paramValue"><input type="text" id="p2p_type"/></td>
+</tr>				
+<tr>
+	<td class="paramName">UID</td>
+	<td class="paramValue"><input type="text" id="uid"/></td>
+</tr>	
+			<!--				 DDNS信息				-->
+<tr><td colspan="2">&nbsp;</td></tr>			
+<tr>
+	<td class="paramName"><script>document.write(str_inner_user)</script></td>
+	<td class="paramValue"><input type="text" id="inner_user"/></td>
+</tr>	
+<tr>
+	<td class="paramName"><script>document.write(str_inner_pwd)</script></td>
+	<td class="paramValue"><input type="password" id="inner_pwd"/></td>
+</tr>	            
+			<!--					云台信息				-->
+<tr><td colspan="2">&nbsp;</td></tr>			
+<tr>
+	<td class="paramName"><script>document.write(str_limit_x)</script></td>
+	<td class="paramValue"><input type="text" id="limit_x"/>&nbsp;(2900/1550)</td>
+</tr>	
+<tr>
+	<td class="paramName"><script>document.write(str_limit_y)</script></td>
+	<td class="paramValue"><input type="text" id="limit_y"/></td>
+</tr>	
+			<!--					在线升级				-->
+<tr><td colspan="2">&nbsp;</td></tr>			
+<tr>
+	<td class="paramName">区域选择</td>
+	<td class="paramValue"><input type="text" id="region"/>&nbsp;(usa/japan/china/europe)</td>
+</tr>	
+<tr>
+	<td class="paramName">版本描述文件路径</td>
+	<td class="paramValue"><input type="text" id="description_file"/></td>
+</tr>				
+</tbody>
+</table>
+</body>
+</html>

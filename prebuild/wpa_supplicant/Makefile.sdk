@@ -1,0 +1,34 @@
+LOCAL_PATH	:= $(call my-dir)
+
+include $(CLEAR_VARS)
+
+LOCAL_TARGET	:= prebuild_wpa_supplicant
+LOCAL_SRCS	:= local etc
+
+.PHONY: $(LOCAL_TARGET)
+
+include $(BUILD_PREBUILD)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	$(call prebuild-links)
+	@echo "Copy $@ Done"
+
+$(call add-target-into-build, $(LOCAL_TARGET))
+
+#------------------------------------------------------------
+include $(CLEAR_VARS)
+
+LOCAL_TARGET	:= prebuild_backup_wpa_supplicant
+LOCAL_SRCS	:= local etc
+
+.PHONY: $(LOCAL_TARGET)
+
+include $(BUILD_BACKUP_PREBUILD)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	$(call prebuild-backup-links)
+	@echo "Copy $@ Done"
+
+ifeq ($(WITH_BACKUP_ROOTFS), y)
+$(call add-target-into-build, $(LOCAL_TARGET))
+endif

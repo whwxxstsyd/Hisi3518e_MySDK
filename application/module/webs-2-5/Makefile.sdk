@@ -1,0 +1,45 @@
+LOCAL_PATH := $(call my-dir)
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET := libWeb.a
+LOCAL_SRCS   := $(wildcard $(LOCAL_PATH)/*.c) $(wildcard $(LOCAL_PATH)/protocol/*.c)
+NONE_SRCS	:= $(LOCAL_PATH)/strerror.c
+DEFS =		 -Os -DWEBS -DOS="LINUX" -DLINUX -DDIGEST_ACCESS_SUPPORT 
+LOCAL_CFLAGS := -Werror -I./ $(OWN_CFLAGS) -Wno-unused-variable -Wno-unused-function
+LOCAL_CFLAGS += -I$(LOCAL_PATH) #add by zhang
+LOCAL_CFLAGS += $(DEFS)
+LOCAL_LDFLAGS:= -lstdc++ -pthread -lcrypt
+LOCAL_LIBS	 := libSocket.a libAvBuffer.a libCheckParam.a libParamOpt.a	\
+				libStringParser.a libAvi.a libFifo.a libIpc.a libTask.a
+
+include $(BUILD_APP)
+
+.PHONY: $(LOCAL_TARGET)
+
+$(LOCAL_TARGET):$(LOCAL_MODULE)
+	@echo "Build $@ Done."
+
+$(call add-target-into-build, $(LOCAL_TARGET))
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET := test_web
+LOCAL_SRCS   := $(LOCAL_PATH)/test_web.c
+LOCAL_CFLAGS := -Werror -I./ $(OWN_CFLAGS) -Wno-unused-variable -Wno-unused-function
+LOCAL_LDFLAGS:= -lstdc++ -pthread
+LOCAL_LDFLAGS	+= -lcrypt	# for thttpd
+LOCAL_LIBS	 := libWeb.a
+
+# 包含海思库
+LOCAL_LDFLAGS	+= $(HISI_LIBS) $(AUDIO_LIBS)
+
+include $(BUILD_APP)
+
+.PHONY: $(LOCAL_TARGET)
+
+$(LOCAL_TARGET):$(LOCAL_MODULE)
+	@echo "Build $@ Done."
+
+#$(call add-target-into-build, $(LOCAL_TARGET))		打开有问题
+

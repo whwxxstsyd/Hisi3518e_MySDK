@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IPCamera</title>
+<link type="text/css" rel="stylesheet" href="css/start/jquery-ui-1.9.2.custom.min.css"/>
+<link type="text/css" rel="stylesheet" href="css/ipcamera_frame_common.css">
+<style type="text/css">
+#datepicker{width:80px}
+#manualHour,#manualMinute,#manualSecond{width:50px}
+tr#manualsetTime,tr#syncPCTime,tr.syncTimeServe{display:none}
+#TimeZone{width:auto}
+</style>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="js/time.js"></script>
+</head>
+<body>
+    <table class="tab_data">
+    <thead>
+        <tr>
+            <th colspan="2" class="titlebar">
+                <a id="save"><script>document.write(str_save)</script></a>
+                <a id="refresh" href="javascript:location.reload();"><script>document.write(str_refresh)</script></a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+    	<td colspan="2"><strong><script>document.write(str_timeseting)</script></strong></td>
+    </tr>
+    <tr>
+        <td class="paramName"><script>document.write(str_devtime)</script></td>
+        <td class="paramValue" id="timenow"></td>
+    </tr>
+    <tr>
+        <td class="paramName"><script>document.write(str_ntpmode)</script></td>
+        <td class="paramValue">
+            <select id="ntpType">
+                <option value="nomal_sync"><script>document.write(str_manualset)</script></option>
+                <option value="pc_sync"><script>document.write(str_synclocal)</script></option>
+                <option value="ntp_sync"><script>document.write(str_syncnpt)</script></option>
+            </select>
+        </td>
+    </tr>
+    <tr id="manualsetTime">
+        <td class="paramName"><script>document.write(str_ntptime)</script></td>
+        <td class="paramValue">
+            <input type="text" id="datepicker" readonly="readonly"/>
+            <select id="manualHour"></select>:<select id="manualMinute"></select>:<select id="manualSecond"></select>
+        </td>
+    </tr>
+    <tr id="syncPCTime">
+        <td class="paramName"><script>document.write(str_ntppctime)</script></td>
+        <td class="paramValue"><input type="text" id="pctime" disabled="disabled"/></td>
+    </tr>
+    <tr class="syncTimeServe">
+        <td class="paramName"><script>document.write(str_ntpserver)</script></td>
+        <td class="paramValue">
+            <select id="ntpserver">
+                <option value="time.windows.com">time.windows.com</option>
+                <option value="time.nist.gov">time.nist.gov</option>
+                <option value="time-nw.nist.gov">time-nw.nist.gov</option>
+                <option value="time-a.nist.gov">time-a.nist.gov</option>
+                <option value="time-b.nist.gov">time-b.nist.gov</option>
+            </select>
+        </td>
+    </tr>
+    <tr class="syncTimeServe">
+        <td class="paramName"><script>document.write(str_ntpinterval)</script></td>
+        <td class="paramValue">
+            <select id="ntpinterval"></select>
+        </td>
+    </tr>
+    <tr>
+   		<td colspan="2"><strong><script>document.write(str_timezoneset)</script></strong></td>
+    </tr>
+    <tr>
+        <td class="paramName"><script>document.write(str_timezone)</script></td>
+        <td class="paramValue">
+            <select id="TimeZone">
+                <option value="GMT12"><script>document.write(str_GMT1)</script></option>
+                <option value="GMT11"><script>document.write(str_GMT2)</script></option>
+                <option value="GMT10"><script>document.write(str_GMT3)</script></option>
+                <option value="GMT9"><script>document.write(str_GMT4)</script></option>
+                <option value="GMT8"><script>document.write(str_GMT5)</script></option>
+                <option value="GMT7"><script>document.write(str_GMT8)</script></option>
+                <option value="GMT6"><script>document.write(str_GMT12)</script></option>
+                <option value="GMT5"><script>document.write(str_GMT14)</script></option>
+                <option value="GMT4"><script>document.write(str_GMT18)</script></option>
+                <option value="GMT3"><script>document.write(str_GMT19)</script></option>
+                <option value="GMT2"><script>document.write(str_GMT23)</script></option>
+                <option value="GMT1"><script>document.write(str_GMT24)</script></option>
+                <option value="GMT0"><script>document.write(str_GMT26)</script></option>
+                <option value="GMT-1"><script>document.write(str_GMT28)</script></option>
+                <option value="GMT-2"><script>document.write(str_GMT33)</script></option>
+                <option value="GMT-3"><script>document.write(str_GMT41)</script></option>
+                <option value="GMT-4"><script>document.write(str_GMT44)</script></option>
+                <option value="GMT-5"><script>document.write(str_GMT48)</script></option>
+                <option value="GMT-6"><script>document.write(str_GMT51)</script></option>
+                <option value="GMT-7"><script>document.write(str_GMT55)</script></option>
+                <option value="GMT-8"><script>document.write(str_GMT57)</script></option>
+                <option value="GMT-9"><script>document.write(str_GMT62)</script></option>
+                <option value="GMT-10"><script>document.write(str_GMT66)</script></option>
+                <option value="GMT-11"><script>document.write(str_GMT71)</script></option>
+                <option value="GMT-12"><script>document.write(str_GMT72)</script></option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="paramName"><script>document.write(str_daylight)</script></td>
+        <td class="paramValue">
+            <ul class="switch" id="dstsw">
+                <li><script>document.write(str_disable)</script></li>
+                <li id="dstsw" class="switch_icon">&nbsp;</li>
+                <li><script>document.write(str_enable)</script></li>
+                <div class="cb"></div>
+            </ul>
+        </td>
+    </tr>
+    </tbody>
+    </table>
+</body>
+</html>

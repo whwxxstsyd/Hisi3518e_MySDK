@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IPCamera wifi setting</title>
+<link type="text/css" rel="stylesheet" href="css/start/jquery-ui-1.9.2.custom.min.css"/>
+<link type="text/css" rel="stylesheet" href="css/ipcamera_frame_common.css"/>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="js/wifi.js"></script>
+<style type="text/css">
+fieldset span{
+	display:inline-block;
+	width:90px;
+	text-align:right;
+}
+#dialog{display:none}
+#connectwifi_tips{background:#79bfe4}
+</style>
+</head>
+<body>
+<table class="tab_data">
+    <thead>
+        <th colspan="2" class="titlebar">
+            <a id="save"><script>document.write(str_save)</script></a>
+            <a id="refresh" href="javascript:location.reload();"><script>document.write(str_refresh)</script></a>
+        </th>
+    </thead>
+    <tbody>
+        <tr id="connectwifi_tips">
+        	<td colspan="2" style="color:#E10602;"><script>document.write(str_tips_connectwifi)</script></td>
+        </tr>
+        <!--
+        <tr>
+            <td class="paramName"><script>document.write(str_wifistate)</script></td>
+            <td class="paramValue">
+                <ul class="switch" id="wifi_switch">
+                    <li><script>document.write(str_disable)</script></li>
+                    <li class="switch_icon">&nbsp;</li>
+                    <li><script>document.write(str_enable)</script></li>
+                    <div class="cb"></div>
+                </ul>
+            </td>
+        </tr>
+        -->
+        <tr id="wifi_list">
+            <td class="paramName"><script>document.write(str_wifiList)</script></td>
+            <td class="paramValue">
+            <div id="wifiList">&nbsp;</div>
+        </td>
+        </tr>
+    </tbody>
+</table>
+<div id="dialog">
+    <form>
+        <fieldset id="connectwifi_msg"><script>document.write(str_tips_inputwifikey)</script></fieldset>
+        <fieldset>
+            <span><script>document.write(str_wifiname)</script>:</span>
+            <label id="wifi_ssid">&nbsp;</label>
+        </fieldset>
+        <fieldset style="display:none;"><script>document.write(str_wifiauth)</script>:<span id="wifi_secret">&nbsp;</span></fieldset>
+        <fieldset>
+            <span><script>document.write(str_wifikey)</script>:</span>
+            <div id="wifikey_wrap" style="display:inline-block">
+                <input id="wifikey" type="password"/>
+            </div>
+        </fieldset>
+        <fieldset>
+            <span>&nbsp;</span>
+            <input type="checkbox" id="showkey"/>
+            <script>document.write(str_showpwd)</script>
+        </fieldset>
+    </form>
+</div>
+<div id="confirm_dialog">&nbsp;</div>
+</body>
+</html>

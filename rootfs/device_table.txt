@@ -1,0 +1,30 @@
+#<name>		<type>	<mode>	<uid>	<gid>	<major>	<minor>	<start>	<inc>	<count>
+/bin		d 755 0 0 - - - - - 
+/run		d 755 0 0 - - - - - 
+/etc		d 755 0 0 - - - - - 
+/root		d 755 0 0 - - - - -
+/home		d 755 0 0 - - - - - 
+/mnt		d	755	0	0	-	-	-	-	-
+/mnt/sdcard	d 755 0 0 - - - - -
+/mnt/config	d 755 0 0 - - - - -
+/proc		d	755	0	0	-	-	-	-	-
+/sbin		d	755	0	0	-	-	-	-	-
+/sys		d	755	0	0	-	-	-	-	-
+/tmp		d	750	0	0	-	-	-	-	-
+/var		d	750	0	0	-	-	-	-	-
+/lib		d	750	0	0	-	-	-	-	-
+/dev		d	755	0	0	-	-	-	-	-
+/dev/pts	d	755	0	0	-	-	-	-	-
+/dev/shm	d	755	0	0	-	-	-	-	-
+/www		d 755 0 0 - - - - -
+/var/run	d 755 0 0 - - - - -
+/local	d 755 0 0 - - - - -
+/local/bin	d 755 0 0 - - - - -
+/local/sbin	d 755 0 0 - - - - -
+/local/drv	d 755 0 0 - - - - -
+/local/lib	d 755 0 0 - - - - -
+
+# Audio stuff
+/dev/snd		d	755	0	0	-	-	-	-	-
+
+/dev/console	f 	755	0	0	-	-	-	-	-

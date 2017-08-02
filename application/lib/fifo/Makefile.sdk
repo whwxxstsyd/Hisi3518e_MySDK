@@ -1,0 +1,20 @@
+#		source code from transcode-1.1.7
+
+LOCAL_PATH := $(call my-dir)
+
+#------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= libFifo.a
+LOCAL_SRCS		:= $(wildcard $(LOCAL_PATH)/*.c)
+LOCAL_CFLAGS	:= -Werror -Wno-pointer-sign
+LOCAL_LDFLAGS	:= 
+LOCAL_LIBS		:=
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))

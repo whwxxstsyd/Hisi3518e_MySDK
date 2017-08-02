@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>&nbsp;</title>
+<link type="text/css" rel="stylesheet" href="css/ipcamera_frame_common.css"/>
+<link type="text/css" rel="stylesheet" href="css/ipcamera_module_setting.css"/>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/setting.js"></script>
+</head>
+<body>
+<div class="menuPanel" id="menu">
+    <dl class="defaultmenu">			<!--系统-->
+        <dt><script>document.write(str_sys)</script></dt>
+        <dd><a href="setting_devinfo.html" style="font-weight:bold"><script>document.write(str_devState)</script></a></dd>
+        <dd><a href="setting_devname.html"><script>document.write(str_devName)</script></a></dd>
+        <dd><a href="setting_time.html"><script>document.write(str_sysTime)</script></a></dd>
+        <dd><a href="setting_user.html"><script>document.write(str_userAccount)</script></a></dd>
+        <dd><a href="setting_sysconfig.html"><script>document.write(str_sysConfig)</script></a></dd>
+    </dl>
+    <dl>				    							<!--网络设置-->
+        <dt><script>document.write(str_netSet)</script></dt>
+        <dd><a href="setting_ip.html"><script>document.write(str_ipSet)</script></a></dd>
+        <dd><a href="setting_port.html"><script>document.write(str_portSet)</script></a></dd>
+        <dd><a href="setting_wifi.html"><script>document.write(str_wifiSet)</script></a></dd>
+        <dd><a href="setting_upnp.html"><script>document.write(str_upnpSet)</script></a></dd>
+        <dd><a href="setting_ddns.html"><script>document.write(str_ddnsSet)</script></a></dd>
+        <!--<dd><a href="setting_rtmp.html"><script>document.write(str_rtmpSet)</script></a></dd>        -->
+    </dl>
+    <dl>									    		<!--报警设置-->
+        <dt><script>document.write(str_alarmSet)</script></dt>
+        <dd><a href="setting_mdt.html"><script>document.write(str_motionDetection)</script></a></dd>
+        <dd><a href="setting_action.html"><script>document.write(str_actionAlarm)</script></a></dd>
+<!--        <dd><a href="setting_email.html"><script>document.write(str_emailSet)</script></a></dd>			-->
+        <dd><a href="setting_ftp.html"><script>document.write(str_ftpSet)</script></a></dd>
+    </dl>
+    <dl>													<!--定时录像/拍照-->
+        <dt><script>document.write(str_timingRecOrCapture)</script></dt>
+        <dd><a href="setting_record.html"><script>document.write(str_timingRecord)</script></a></dd>
+        <dd><a href="setting_snapshot.html"><script>document.write(str_timingCapture)</script></a></dd>
+    </dl>
+    <dl>													<!--视频设置-->
+        <dt><script>document.write(str_videoSet)</script></dt>
+        <dd><a href="setting_video.html"><script>document.write(str_videoParam)</script></a></dd>
+        <dd id="audio_page"><a href="setting_sound.html"><script>document.write(str_audio)</script></a></dd>
+    </dl>
+    <dl>													<!--其他设置-->
+        <dt id="other_setting"><script>document.write(str_others)</script></dt>
+        <dd id="ptz_page"><a href="setting_ptz.html"><script>document.write(str_panset)</script></a></dd>
+				<dd id="widedev_page"><a href="setting_widedev.html"><script>document.write(str_wideDev)</script></a></dd>        
+    </dl>
+</div>
+<iframe class="sysset_ctx" id="ife_ctx" src="setting_devinfo.html" allowTransparency="true" frameborder="0" scrolling="auto"></iframe>
+</body>
+</html>

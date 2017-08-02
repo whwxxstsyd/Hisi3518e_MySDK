@@ -1,0 +1,20 @@
+LOCAL_PATH := $(call my-dir)
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= libPlatformTask.a
+LOCAL_SRCS   := $(wildcard $(LOCAL_PATH)/task_*.cpp)
+LOCAL_CFLAGS	:= -I$(MY_APP_INC) -Werror
+LOCAL_LDFLAGS	:= -pthread
+LOCAL_LIBS		:= 	  libTaskBase.a libAvBuffer.a libParamOpt.a 	\
+					  libHiBase.a libHiCodec.a	libParamOpt.a	\
+					  libTask.a libNormal.a libIpc.a libMotor.a
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))

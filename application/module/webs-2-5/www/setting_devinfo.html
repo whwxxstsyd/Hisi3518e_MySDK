@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IPCamera</title>
+<link type="text/css" rel="stylesheet" href="css/start/jquery-ui-1.9.2.custom.min.css"/>
+<link type="text/css" rel="stylesheet" href="css/ipcamera_frame_common.css"/>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/devinfo.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<style type="text/css">
+#path_btn{
+	color:#fff;
+	margin:5px;
+}
+.common_btn{
+	height: 20px;
+	line-height:20px;
+}
+#wait_content{
+	position: absolute;
+	display:none;
+	width:100px;
+	height:30px;
+	line-height:30px;
+	background:url(images/loading.gif) no-repeat 10px center;
+	padding-left:40px;
+	top: 35%;
+	left: 42%;
+	background-color: #fff;
+	z-index:1002;
+}
+#sdstatus{
+	display:inline-block;
+	width:165px;
+}
+#format_btn,#remove_btn,#browse_btn{
+	display:none;
+}
+</style>
+</head>
+<body>
+<table class="tab_data">
+    <thead>
+        <tr>
+            <th colspan="2" class="titlebar">
+            <a id="refresh" href="javascript:location.reload();"><script>document.write(str_refresh)</script></a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="paramName"><script>document.write(str_devmodel)</script></td>
+            <td class="paramValue" id="devmodel">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="paramName"><script>document.write(str_devname)</script></td>
+            <td class="paramValue" id="devname">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="paramName">UID</td>
+            <td class="paramValue" id="uid">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="paramName"><script>document.write(str_hardver)</script></td>
+            <td class="paramValue" id="hardver">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="paramName"><script>document.write(str_softver)</script></td>
+            <td class="paramValue" id="softver">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="paramName"><script>document.write(str_webuiver)</script></td>
+            <td class="paramValue" id="webuiver">&nbsp;</td>
+        </tr>
+        <!--
+        <tr>
+            <td class="paramName"><script>document.write(str_sysstartdate)</script></td>
+            <td class="paramValue" id="sysstartdate">&nbsp;</td>
+        </tr>
+        -->
+        <tr>
+            <td class="paramName"><script>document.write(str_upnpstatus)</script></td>
+            <td class="paramValue" id="upnpstatus">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="paramName"><script>document.write(str_ddnsstatus)</script></td>
+            <td class="paramValue" id="ddnsstatus">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="paramName"><script>document.write(str_sdstatus)</script></td>
+            <td class="paramValue">
+                <div id="sdstatus">&nbsp;</div>
+                <span id="format_btn" class="common_btn"><script>document.write(str_format)</script></span>
+								<a id="browse_btn" class="common_btn"  href="/sd" style="text-decoration:none"><script>document.write(str_browse_sd)</script></a>
+								<span id="remove_btn" class="common_btn"><script>document.write(str_remove_sd)</script></span>                
+            </td>
+        </tr>
+        <!--
+        <tr id="localpath">
+            <td class="paramName"><script>document.write(str_localstore)</script></td>
+            <td class="paramValue" id="localstore">
+            	<input type="text" class="fl" readonly="readonly"  style="margin:5px 0"/><span id="path_btn" class="presetBtn fl common_btn"></span>
+            </td>
+        </tr>
+        -->
+        <tr>
+            <td class="paramName"><script>document.write(str_ntpstatus)</script></td>
+            <td class="paramValue" id="ntpstatus">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="paramName"><script>document.write(str_macaddr)</script></td>
+            <td class="paramValue" id="macaddr">&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+<div id="formatconfirm_dialog" style="display:none;"><script>document.write(str_tips_fomatsd)</script></div>
+<div id="wait_content"><script>document.write(str_wait)</script></div>
+<div id="coverlayer">&nbsp;</div>
+</body>
+</html>

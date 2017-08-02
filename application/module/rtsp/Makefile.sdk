@@ -1,0 +1,37 @@
+LOCAL_PATH := $(call my-dir)
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET := libRtsp.a
+LOCAL_SRCS   := $(wildcard $(LOCAL_PATH)/*.c)
+NONE_SRCS		 := $(LOCAL_PATH)/test_rtsp.c
+LOCAL_CFLAGS := -Werror
+LOCAL_LDFLAGS:= -lstdc++ -pthread -Wl,--hash-style=sysv
+LOCAL_LIBS	 :=  libParamOpt.a\
+				 libTask.a libBase64.a libMd5.a libAvBuffer.a libSocket.a libNormal.a
+
+include $(BUILD_APP)
+
+.PHONY: $(LOCAL_TARGET)
+
+$(LOCAL_TARGET):$(LOCAL_MODULE)
+	@echo "Build $@ Done."
+
+$(call add-target-into-build, $(LOCAL_TARGET))
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET := test_rtsp
+LOCAL_SRCS   := $(LOCAL_PATH)/test_rtsp.c
+LOCAL_CFLAGS := -Werror
+LOCAL_LDFLAGS:= -lstdc++ -pthread --Wl,--hash-style=sysv
+LOCAL_LIBS	 := libRtsp.a
+
+include $(BUILD_APP)
+
+.PHONY: $(LOCAL_TARGET)
+
+$(LOCAL_TARGET):$(LOCAL_MODULE)
+	@echo "Build $@ Done."
+
+$(call add-target-into-build, $(LOCAL_TARGET))

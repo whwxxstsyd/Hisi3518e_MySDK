@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background:none;
+}
+.menuPanel,.sysset_ctx{
+	float:left;
+}
+.menuPanel{
+	width:190px;
+	height: 580px;
+	margin-right:10px;
+}
+.menuPanel dl{
+	text-align:center;
+}
+.menuPanel dt,.menuPanel dd{width:100%;}
+.menuPanel dt{
+	color:#FFF;
+	height:35px;
+	line-height:35px;
+	cursor:pointer;
+	background:url(../images/admin_videoWatch_menuPanel_btn.png) no-repeat 0 0;
+}
+.menuPanel dd{
+	display:none;
+	margin:10px 0;
+}
+.menuPanel dt:hover{
+	background-position:0 -35px;
+}
+.menuPanel dd a:hover{
+	font-weight:bold;
+}
+.sysset_ctx{
+	width:936px;
+	height: 580px;
+	display:block;
+	background:#fff;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IPCamera</title>
+<link type="text/css" rel="stylesheet" href="css/ipcamera_frame_common.css"/>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/video.js"></script>
+</head>
+<body>
+<table class="tab_data">
+<thead>
+    <th colspan="2" class="titlebar">
+    <a id="save"><script>document.write(str_save)</script></a>
+    <a id="refresh" href="javascript:location.reload();"><script>document.write(str_refresh)</script></a>
+    </th>
+</thead>
+<tbody>
+<tr><td colspan="2"><strong><script>document.write(str_mainstream)</script></strong></td></tr>	
+	<tr>		<!-- 分辨率 -->
+		<td class="paramName"><script>document.write(str_resolution)</script></td>
+		<td class="paramValue">
+			<select id="Resolution0Sel">
+			</select>
+		</td>
+	</tr>
+	<tr>		<!-- 帧率 -->
+		<td class="paramName"><script>document.write(str_framerate)</script></td>
+		<td class="paramValue">
+		<select id="Fps0Sel">
+		<option value="5">5</option>
+		<option value="10">10</option>
+		<option value="15">15</option>
+		<option value="20">20</option>
+		<option value="25">25</option>			
+		<option value="30">30</option>				
+		</select>
+		</td>
+	</tr>	
+	<tr>		<!-- 码率 -->
+		<td class="paramName"><script>document.write(str_bitrate)</script></td>
+		<td class="paramValue">
+			<select id="Bitrate0Sel">
+				<option value="4096">4096kbps</option>				
+				<option value="3096">3072kbps</option>
+				<option value="2048">2048kbps</option>
+				<option value="1536">1536kbps</option>				
+				<option value="1024">1024kbps</option>
+				<option value="768">768kbps</option>				
+				<option value="512">512kbps</option>										
+			</select>
+		</td>
+	</tr>	
+	<tr><td colspan="2"><strong><script>document.write(str_secondstream)</script></strong></td></tr>		
+	<tr>		<!-- 分辨率 -->
+		<td class="paramName"><script>document.write(str_resolution)</script></td>
+		<td class="paramValue">
+			<select id="Resolution1Sel">
+				<option value="VGA">VGA</option>
+				<option value="QVGA">QVGA</option>
+			</select>
+		</td>
+	</tr>
+	<tr>		<!-- 帧率 -->
+		<td class="paramName"><script>document.write(str_framerate)</script></td>
+		<td class="paramValue">
+		<select id="Fps1Sel">
+		<option value="5">5</option>
+		<option value="10">10</option>
+		<option value="15">15</option>
+		<option value="20">20</option>
+		<option value="25">25</option>	
+		<option value="30">30</option>					
+		</select>
+		</td>
+	</tr>		
+	<tr>		<!-- 码率 -->
+		<td class="paramName"><script>document.write(str_bitrate)</script></td>
+		<td class="paramValue">
+			<select id="Bitrate1Sel">
+				<option value="1024">1024kbps</option>
+				<option value="768">768kbps</option>						
+				<option value="512">512kbps</option>		
+				<option value="384">384kbps</option>					
+				<option value="256">256kbps</option>
+				<option value="128">128kbps</option>						
+			</select>
+		</td>
+	</tr>			
+</tbody>
+</table>
+</body>
+</html>

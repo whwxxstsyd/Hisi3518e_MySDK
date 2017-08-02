@@ -1,0 +1,104 @@
+LOCAL_PATH := $(call my-dir)
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= libSocket.a
+LOCAL_SRCS   := $(LOCAL_PATH)/socket.c
+LOCAL_CFLAGS	:= -I$(MY_APP_INC) -Werror
+LOCAL_LDFLAGS	:= -pthread
+LOCAL_LIBS		:= 
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= libNet.a
+LOCAL_SRCS   := $(LOCAL_PATH)/net.c
+LOCAL_CFLAGS	:= -I$(MY_APP_INC) -Werror -fno-strict-aliasing
+LOCAL_LDFLAGS	:= -pthread
+LOCAL_LIBS		:= 
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))
+
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= libWifi.a
+LOCAL_SRCS   := $(LOCAL_PATH)/wifi.cpp
+LOCAL_CFLAGS	:= -I$(MY_APP_INC) -Werror
+LOCAL_LDFLAGS	:= -pthread
+LOCAL_LIBS		:= $(SDK_TOPDIR)/prebuild/wpa_supplicant/local/lib/libWifiCli.a	libNormal.a
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= test_wifi
+LOCAL_SRCS   := $(LOCAL_PATH)/test_wifi.cpp
+LOCAL_CFLAGS	:= -I$(MY_APP_INC) -Werror
+LOCAL_LDFLAGS	:= -pthread
+LOCAL_LIBS		:= libWifi.a
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= test_net
+LOCAL_SRCS   := $(LOCAL_PATH)/test_net.cpp
+LOCAL_CFLAGS	:= -I$(MY_APP_INC) -Werror
+LOCAL_LDFLAGS	:= -pthread
+LOCAL_LIBS		:= libSocket.a
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= test_socket
+LOCAL_SRCS   := $(LOCAL_PATH)/test_socket.cpp
+LOCAL_CFLAGS	:= -I$(MY_APP_INC) -Werror
+LOCAL_LDFLAGS	:= -pthread
+LOCAL_LIBS		:= libSocket.a
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))

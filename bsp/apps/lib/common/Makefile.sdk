@@ -1,0 +1,18 @@
+LOCAL_PATH := $(call my-dir)
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= libHiBase.a
+LOCAL_SRCS   := $(wildcard $(LOCAL_PATH)/*.c)
+LOCAL_CFLAGS	:= -I$(PLATFORM_DIR)/apps/include $(HI_CFLAGS)
+LOCAL_LDFLAGS	:= -pthread
+LOCAL_LIBS		:= 
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))

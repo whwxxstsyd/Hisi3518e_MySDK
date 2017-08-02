@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IPCamera</title>
+<link type="text/css" rel="stylesheet" href="css/ipcamera_frame_common.css"/>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/capture.js"></script>
+</head>
+<body bonder="1">
+<table class="tab_data">
+<thead>
+    <th colspan="2" class="titlebar">
+    <a id="save"><script>document.write(str_save)</script></a>
+    <a id="refresh" href="javascript:location.reload();"><script>document.write(str_refresh)</script></a>
+    </th>
+</thead>
+<tbody>
+	<tr>			<!-- 状态 -->
+		<td class="paramName"><script>document.write(str_timingCapture)</script></td>
+		<td class="paramValue">
+			<ul class="switch" id="timingCapture_switch">
+				<li><script>document.write(str_disable)</script></li>
+				<li class="switch_icon">&nbsp;</li>
+				<li><script>document.write(str_enable)</script></li>
+			</ul>
+		</td>
+	</tr>
+	<tr class="captureSettings">			<!-- 抓拍时间间隔 -->
+		<td class="paramName"><script>document.write(str_snapshot_peroid)</script></td>
+		<td class="paramValue"><input id="SnapInterval" type="text"></td>
+	</tr>
+	<tr class="captureSettings">			<!-- sd存储 -->
+		<td class="paramName"><script>document.write(str_sdReceive)</script></td>
+		<td class="paramValue">
+			<ul class="switch" id="SdCapture_switch">
+				<li><script>document.write(str_disable)</script></li>
+				<li class="switch_icon">&nbsp;</li>
+				<li><script>document.write(str_enable)</script></li>
+			</ul>
+		</td>
+	</tr>
+	<!--
+	<tr class="captureSettings">			<!-- email发送 -->
+		<td class="paramName"><script>document.write(str_emailReceive)</script></td>
+		<td class="paramValue">
+			<ul class="switch" id="EmailCapture_switch">
+				<li><script>document.write(str_disable)</script></li>
+				<li class="switch_icon">&nbsp;</li>
+				<li><script>document.write(str_enable)</script></li>
+			</ul>
+		</td>
+	</tr>
+	-->
+	<tr class="captureSettings">			<!-- ftp上传 -->
+		<td class="paramName"><script>document.write(str_ftpReceive)</script></td>
+		<td class="paramValue">
+			<ul class="switch" id="FtpCapture_switch">
+				<li><script>document.write(str_disable)</script></li>
+				<li class="switch_icon">&nbsp;</li>
+				<li><script>document.write(str_enable)</script></li>
+			</ul>
+		</td>
+	</tr>		
+</tbody>
+</table>
+</body>
+</html>

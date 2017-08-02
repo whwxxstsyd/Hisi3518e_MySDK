@@ -1,0 +1,9 @@
+var alias_array=new Array();
+var host_array=new Array();
+var port_array=new Array();
+var same_subnet_array=new Array();
+				
+alias_array = ["new camera", "new camera", "new camera", "", "", "", "", ""];				
+host_array = ["192.168.1.11", "192.168.1.12", "192.168.1.13", "", "", "", "", ""];
+port_array = [7778, 7779, 7780, 0, 0, 0, 0, 0];
+same_subnet_array = [1, 1, 1, 0, 0, 0, 0, 0];

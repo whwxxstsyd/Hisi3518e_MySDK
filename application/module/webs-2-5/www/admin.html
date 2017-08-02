@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>IPCamera Admin</title>
+<link type="text/css" rel="stylesheet" href="css/ipcamera_frame_common.css">
+<link type="text/css" rel="stylesheet" href="css/ipcamera_module_admin.css">
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/admin.js"></script>
+</head>
+<body>
+<div id="adminBg"><img src="images/bg.png"/></div>
+
+    <div id="container">
+        <div id="header">
+            <div class="hd_left"></div>
+            <div class="hd_center">
+                <div id="logo"></div>
+                <ul id="userInfo">
+                    <li><strong id="loginUser">admin</strong></li>
+                    <li><a id="logOff"><script>document.write(str_logout)</script></a></li>
+                </ul>
+                <ul class="hd_tabs" id="tab">
+                    <li class="current" url="liveview.html"><a class="vide_icon"><script>document.write(str_videoWatch)</script></a></li>
+                    <li id="playback_page" url="playback.html"><a class="playback_icon"><script>document.write(str_palyback)</script></a></li>
+                    <li id="setting_page" url="setting.html"><a class="sysSet_icon"><script>document.write(str_sysSet)</script></a></li>
+                </ul>
+            </div>
+            <div class="hd_right"></div>
+        </div>
+        <div id="content">
+            <div class="ct_left"></div>
+            <div class="ct_center" id="ctx">
+                <iframe id="ifectx" src="liveview.html" frameborder="0" scrolling="no" width="100%" height="600px" style="background:none;" allowtransparency="true"></iframe>
+            </div>
+            <div class="ct_right"></div>
+        </div>
+    </div>	<!-- container -->
+    <div id="coverlayer">&nbsp;</div>
+    <div id="modifyPwd_dialog">
+        <form id="modifyinitpwd_form">
+            <fieldset id="tips_txt">
+                <script>document.write(str_error_pwdtoosimple)</script>
+            </fieldset>
+            <fieldset>
+                <span><script>document.write(str_newpwd)</script></span>
+                <input type="password" maxlength="12" id="newpwd">
+            </fieldset>
+            <fieldset>
+                <span><script>document.write(str_verifypwd)</script></span>
+                <input type="password" maxlength="12" id="verifypwd">
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

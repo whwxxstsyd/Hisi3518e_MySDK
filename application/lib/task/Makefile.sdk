@@ -1,0 +1,35 @@
+LOCAL_PATH := $(call my-dir)
+
+#------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= libTask.a
+LOCAL_SRCS		:= $(LOCAL_PATH)/task.c 
+LOCAL_CFLAGS	:= -Werror
+LOCAL_LDFLAGS	:=  
+LOCAL_LIBS		:=
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))
+
+#------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= test_task
+LOCAL_SRCS		:= $(LOCAL_PATH)/test_task.c 
+LOCAL_CFLAGS	:= -Werror
+LOCAL_LDFLAGS	:= -pthread
+LOCAL_LIBS		:= libTask.a
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))

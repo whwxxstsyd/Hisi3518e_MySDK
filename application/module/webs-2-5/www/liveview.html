@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>&nbsp;</title>
+<link type="text/css" rel="stylesheet" href="css/start/jquery-ui-1.9.2.custom.min.css"/>
+<link type="text/css" rel="stylesheet" href="css/ipcamera_frame_common.css"/>
+<link type="text/css" rel="stylesheet" href="css/ipcamera_module_video.css"/>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="js/player.js"></script>
+<script type="text/javascript" src="js/liveview.js"></script>
+<style type="text/css">
+#downloadplugin_tips{
+	display:none
+}
+.menuPanel dd{
+	display:none;
+	margin:10px 0;
+}
+</style>
+<script>
+		var LimitVersion = new Array(1,1,2,3);
+		function startplay(){
+			if (GetBrowserVer().brower == "Safari")
+				return;
+			try
+			{	
+				var string = window.location.host; 
+				var StrArray = new Array();
+				var VersionArray = new Array();
+				var LimitVersionInt = 0;
+				var VersionInt = 0;
+				
+				StrArray = string.split(":");
+				var playObjs = document.getElementById("player");
+				/* 检查插件版本 */
+				var version = playObjs.GetVersion();
+				VersionArray = version.split(".");
+				LimitVersionInt = (LimitVersion[0] << 24) +  (LimitVersion[1] << 16) +  (LimitVersion[2] << 8) +  LimitVersion[3];
+				VersionInt = (parseInt(VersionArray[0]) << 24) +  (parseInt(VersionArray[1]) << 16) +  (parseInt(VersionArray[2]) << 8) +  parseInt(VersionArray[3]);
+//				alert("VersionInt:" + VersionInt + "\tLimitVersionInt:" + LimitVersionInt);
+				if (VersionInt < LimitVersionInt)
+				{
+					$("#PlayBox").html('<a target="_blank" class="downplayer" href="/setup.exe">'+str_plugin+'</a>');
+					return;
+				}
+				/* 登录摄像机 */
+				var hDevice = playObjs.DeviceLoginExt(3, StrArray[0], uname, upwd, parseInt(StrArray[1]), 3);		
+				/* 播放视频 */
+			  playObjs.StartRealPlay(hDevice, 0, 0);		
+			}catch(err) {
+				$("#PlayBox").html('<a target="_blank" class="downplayer" href="/setup.exe">'+str_plugin+'</a>');
+			}	 			
+	}
+
+	</script>
+</head>
+<body onload="startplay()">
+<div id="ctrPanel"><!--控制面板-->
+	<div class="multiDev" style="display:none">		<!-- 多画面 -->
+		<ul>
+			<li class="multi_1 multi_1_curr">&nbsp;</li>
+			<li class="multi_4">&nbsp;</li>
+			<li class="multi_9">&nbsp;</li>
+		</ul>
+	</div>
+	<div id="selectPanel">		<!-- 电源频率 分辨率  -->
+		<ul class="input_group">
+			<li>
+				<script>document.write("<span>"+str_power+"</span>")</script>
+				<select id="powerfre">
+					<option value="50Hz">50HZ</option>
+					<option value="60Hz">60HZ</option>
+				</select>
+			</li>
+			<li>
+				<script>document.write("<span>"+str_video_stream+"</span>")</script>
+				<select id="resolution">
+					<option value="main_stream"><script>document.write(str_mainstream)</script></option>
+					<option value="sub1_stream"><script>document.write(str_secondstream)</script></option>
+				</select>
+			</li>
+		</ul>
+	</div>
+  <div id="ptz" style="display:none">						<!-- 云台 -->
+      <img id="ptz_img" src="images/admin_ptz.png" usemap="#ptz_map">
+      <map name="ptz_map">
+          <area id="ptzUpLeft" shape="poly" coords="6,55,26,24,53,7,74,52,61,60,52,73">
+          <area id="ptzUp" shape="poly" coords="56,8,75,52,89,48,106,52,126,8,88,1">
+          <area id="ptzUpRight" shape="poly" coords="124,9,106,52,119,63,127,75,171,56,152,27">
+          <area id="ptzLeft" shape="poly" coords="7,57,1,90,8,125,51,109,47,90,52,75">
+          <area id="ptzMiddle" shape="circle" coords="90,90,39">
+          <area id="ptzRight" shape="poly" coords="171,58,128,76,131,89,128,104,172,123,177,88">
+          <area id="ptzDownLeft" shape="poly" coords="51,108,9,126,26,154,55,170,73,129,61,120">
+          <area id="ptzDown" shape="poly" coords="124,171,91,177,55,170,76,127,91,132,107,126">
+          <area id="ptzDownRight" shape="poly" coords="171,126,150,153,124,170,109,126,120,117,128,103">
+      </map>
+  </div>
+	<div id="ctrlmenu" class="menuPanel">
+    <dl id="patrol" style="display:none">
+        <dt><script>document.write(str_patrol)</script></dt>
+        <dd id="patrol_h">&nbsp;</dd>
+        <dd id="patrol_stop">&nbsp;</dd>
+        <dd id="patrol_v">&nbsp;</dd>
+        <div class="cb"></div>
+    </dl>
+    <dl id="preset" style="display:none">
+        <dt><script>document.write(str_preset)</script></dt>
+        <dd>
+            <span class="presetBtn" id="set_pre"><script>document.write(str_preset_set)</script></span>
+            <span class="presetBtn" id="clear_pre"><script>document.write(str_preset_clear)</script></span>
+            <span class="presetBtn" id="go_pre"><script>document.write(str_preset_go)</script></span>
+        </dd>
+    </dl>
+    <dl id="infrdLight" style="display:none">
+        <dt><script>document.write(str_ir)</script></dt>
+        <dd class="led">
+            <select id="irled" style="margin:10px auto">
+                <option value="ir_auto"><script>document.write(str_ledauto)</script></option>
+                <option value="ir_on"><script>document.write(str_ledopen)</script></option>
+                <option value="ir_off"><script>document.write(str_ledclose)</script></option>
+            </select>
+            <div class="cb"></div>
+        </dd>
+    </dl>
+    <dl id="screenAdj">
+        <dt><script>document.write(str_screen)</script></dt>
+        <dd>
+        	<span id="brightness" class="brightness_icon">&nbsp;</span>
+       		<div class="slider"></div>
+       		<span>&nbsp;</span>
+        </dd>
+        <div class="cb"></div>
+        <dd>
+        	<span id="contrast" class="contrast_icon">&nbsp;</span>
+        	<div class="slider"></div>
+        	<span>&nbsp;</span>
+        </dd>
+        <div class="cb"></div>
+        <dd>
+        	<span id="videoParamDefault" class="defaultBtn"><script>document.write(str_btn_default)</script></span>
+        </dd>
+    </dl>
+    <dl id="orientation">
+        <dt><script>document.write(str_orientation)</script></dt>
+        <dd>
+            <ul class="switch" id="invert">
+                <li><script>document.write(str_normal)</script></li>
+                <li class="switch_icon">&nbsp;</li>
+                <li><script>document.write(str_mirror)</script></li>
+                <div class="cb"></div>
+            </ul>
+            <ul class="switch" id="mirror">
+                <li><script>document.write(str_normal)</script></li>
+                <li class="switch_icon">&nbsp;</li>
+                <li><script>document.write(str_invert)</script></li>
+                <div class="cb"></div>
+            </ul>
+        </dd>
+    </dl>
+	</div>
+</div><!--控制面板end-->
+
+<div class="video">			<!--视频播放-->
+	<div class="videoPlay" id="PlayBox">
+	<SCRIPT type=text/JavaScript>
+		document.open();
+		if (GetBrowserVer().brower == "Chrome" || GetBrowserVer().brower == "Firefox")
+		{
+			document.write('<object id="player_obj" width="936" height="544" classid="clsid:D7108685-7911-49CC-92C0-CEFEF981A338">');
+			document.write('<embed id="player" type="application/ipcam-plugin" width=936 height=544 ></embed></object>');			    
+		}
+		else if (GetBrowserVer().brower == "IE")
+		{
+			document.write('<object id="player" name="ipcam" style="width: 936px; height: 544px;" classid="clsid:D7108685-7911-49CC-92C0-CEFEF981A338">');
+			document.write('<param name="_Version" value="65536">');
+			document.write('<param name="_ExtentX" value="19050">');
+			document.write('<param name="_ExtentY" value="15240">');
+			document.write('<param name="_StockProps" value="0">');		
+			document.write('</object>');					
+		}
+		else if (GetBrowserVer().brower == "Safari")
+		{
+				var rtspport = 550;
+				var qt_src = "";
+				var cgiurl="/cgi-bin/get_param.cgi?user="+uname+"&pwd="+upwd+"&rtsp_port";
+				
+				$.ajax({
+					url:cgiurl,
+					async:false,
+					cache:false,
+					success: function(data){
+						eval(data);	
+						rtspport = rtsp_port;
+					}
+				});
+				qt_src = "rtsp://" + document.location.hostname + ":" + rtspport + "/11";
+				document.write('<embed id="QTPlayer" src="' + qt_src + '"');
+				document.write('width="936px" height="544px" ');
+				document.write('autoplay="true" controller="true" scale="tofit" showstatusbar="false" type="video/quicktime" ');
+				document.write('pluginspage="http://www.apple.com/quicktime/"></embed>');
+		}
+		document.close();		
+	</script>		
+	</div>		
+  <ul id="toolbar" class="toolbar_wrap">
+    <li class="toolbar_left">&nbsp;</li>
+    <li class="toolbar_center">
+        <span class="tooltips">&nbsp;</span>
+        <ul class="tools">
+        <!--    <li id="SD_btn">&nbsp;</li>		-->
+        <!--    <li id="zoomin_btn">&nbsp;</li>		-->
+        <!--    <li id="zoomout_btn">&nbsp;</li>	-->
+            <li id="talk_btn">&nbsp;</li>
+            <li id="listen_btn">&nbsp;</li>
+        <!--    <li id="record_btn">&nbsp;</li>		-->
+        <!--    <li id="fullscreen_btn">&nbsp;</li>	-->
+        </ul>
+    </li>
+    <li class="toolbar_right">&nbsp;</li>
+  </ul>
+</div>			<!--视频播放end-->
+</body>
+</html>

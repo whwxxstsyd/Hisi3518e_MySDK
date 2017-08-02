@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IPCamera</title>
+<link type="text/css" rel="stylesheet" href="css/ipcamera_frame_common.css"/>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/record.js"></script>
+<style type="text/css">
+table.schedule td.selectAll {
+	background: #999;
+}
+#timeSchedule table{
+	width:100%;
+	background:#79bfe4;
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+#timeSchedule td{
+	border:1px solid;
+	text-align:center;
+	cursor:pointer;
+}
+#timeSchedule td.selected{
+	background:#4791C5;
+}
+#timeSchedule td.selectRow{
+	background:#A9A9A9;
+}
+</style>
+</head>
+<body>
+<table class="tab_data">
+<thead>
+    <th colspan="2" class="titlebar">
+    <a id="save"><script>document.write(str_save)</script></a>
+    <a id="refresh" href="javascript:location.reload();"><script>document.write(str_refresh)</script></a>
+    </th>
+</thead>
+<tbody>
+		<!--
+    <tr>
+    	<td colspan="2" style="color:#E00702;background-color:#dbf0ff;"><script>document.write(str_tips_changeBitrateRestart)</script></td>
+    </tr>
+    -->
+		<tr>
+        <td class="paramName"><script>document.write(str_timingRecord)</script></td>
+        <td class="paramValue">
+        <ul class="switch" id="timingRecord_switch">
+            <li><script>document.write(str_disable)</script></li>
+            <li class="switch_icon">&nbsp;</li>
+            <li><script>document.write(str_enable)</script></li>
+        <div class="cb"></div>
+        </ul>
+        </td>
+    </tr>
+    <tr class="recordSettings">
+        <td class="paramName"><script>document.write(str_bitRate)</script></td>
+        <td class="paramValue">
+        <select id="bitRateSel">
+        	<option value="main_stream"><script>document.write(str_mainstream)</script></option>
+            <option value="sub1_stream"><script>document.write(str_secondstream)</script></option>
+        </select>
+        </td>
+    </tr>
+    <tr class="recordSettings">
+        <td class="paramName"><script>document.write(str_videoDuration)</script></td>
+        <td class="paramValue">
+        <select id="videoDurationSel">
+        	<option value="15">15s</option>
+            <option value="30">30s</option>
+            <option value="45">45s</option>
+            <option value="60">1min</option>
+            <option value="120">2min</option>
+            <option value="300">5min</option>
+            <option value="600">10min</option>
+            <option value="900">15min</option>
+            <option value=""><script>document.write(str_otherOptions)</script></option>
+        </select>
+        <!--
+        <input type="text" id="videoDuration" />
+        <span class="hints"><script>document.write(str_hints_timingRecDurRange)</script></span>
+        -->
+        </td>
+    </tr>
+    <tr class="recordSettings">
+   		<td colspan="2">
+       		<strong><script>document.write(str_timingRecordSchedule)</script></strong>
+        </td>
+    </tr>
+    <tr class="recordSettings">
+		<td colspan="2" id="timeSchedule">&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div id="progressbar">
+	            <div class="progress-label"><script>document.write(str_loading)</script></div>
+            </div>
+        </td>
+    </tr>
+</tbody>
+</table>
+</body>
+</html>

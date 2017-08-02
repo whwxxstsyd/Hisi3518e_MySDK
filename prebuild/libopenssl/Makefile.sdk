@@ -1,0 +1,31 @@
+LOCAL_PATH	:= $(call my-dir)
+
+include $(CLEAR_VARS)
+
+LOCAL_TARGET	:= prebuild_openssl
+LOCAL_SRCS	:= local
+
+.PHONY: $(LOCAL_TARGET)
+
+include $(BUILD_PREBUILD)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	$(call prebuild-links)
+	@echo "Copy $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))
+
+include $(CLEAR_VARS)
+
+LOCAL_TARGET	:= prebuild_backup_openssl
+LOCAL_SRCS	:= local
+
+.PHONY: $(LOCAL_TARGET)
+
+include $(BUILD_BACKUP_PREBUILD)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	$(call prebuild-backup-links)
+	@echo "Copy $@ Done"
+
+$(call add-target-into-build, $(LOCAL_TARGET))

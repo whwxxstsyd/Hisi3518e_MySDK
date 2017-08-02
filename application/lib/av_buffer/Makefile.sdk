@@ -1,0 +1,19 @@
+LOCAL_PATH := $(call my-dir)
+
+#------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= libAvBuffer.a
+LOCAL_SRCS		:= $(LOCAL_PATH)/av_buffer.c 
+LOCAL_CFLAGS	:= -Werror
+LOCAL_LDFLAGS	:= 
+LOCAL_LIBS		:= libIpc.a
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))
+

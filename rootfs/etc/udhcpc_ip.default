@@ -1,0 +1,64 @@
+#!/bin/sh
+PATH=/bin:/usr/bin:/sbin:/usr/sbin
+RESOLV_CONF="/etc/resolv.conf"
+
+[ -n "$broadcast" ] && BROADCAST="broadcast $broadcast"
+[ -n "$subnet" ] && NETMASK="netmask $subnet"
+
+update_interface()
+{
+  /sbin/ifconfig $interface $ip $BROADCAST $NETMASK
+}
+
+update_routes()
+{
+  if [ -n "$router" ]
+  then
+    while /sbin/route del default gw 0.0.0.0 dev $interface
+    do :
+    done
+		
+    for i in $router
+    do
+      /sbin/route add default gw $i dev $interface
+    done
+  fi
+}
+
+update_dns()
+{
+	if [ -n "$dns" ]
+	then
+		rm $RESOLV_CONF
+	  for i in $dns
+	    do    
+	      echo nameserver $i >> $RESOLV_CONF
+	    done
+	fi
+}
+
+deconfig()
+{
+	/sbin/ifconfig $interface 192.168.0.239
+	/sbin/route add default gw 192.168.0.1
+}
+
+case "$1" in
+  bound)
+    update_interface;
+    update_routes;  
+  ;;
+  renew)
+    update_interface;
+    update_routes; 
+  ;;
+  deconfig)
+    deconfig;
+  ;;
+  *)
+    echo "Usage: $0 {bound|renew|deconfig}"
+    exit 1
+    ;;
+esac
+
+exit 0

@@ -1,0 +1,48 @@
+ul.input_group{
+	padding:10px 0px;
+}
+ul.input_group span{
+	display:inline-block;
+	width:80px;
+	text-align:right;
+}
+ul.input_group select{
+	width:104px;
+}
+.search_result{
+	height:350px;
+	border:1px solid #4477a1;
+	overflow-y: auto;
+}
+.search_result li{
+	cursor:pointer;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	width:155px;
+	overflow: hidden;
+	padding:0px 5px;
+}
+.search_result li:hover,.search_result li.current{
+	background-color:#fff;
+}
+
+.sidebar{
+	float:left;
+}
+.sidebar{
+	width:190px;
+	height:580px;
+	margin-right:10px;
+}
+.sidebar ul.input_group{
+	border:1px solid #4477a1;
+}
+.sidebar ul.input_group span{
+	width:90px;
+}
+.sidebar ul.input_group select{
+	width:84px;
+}
+.sidebar ul.input_group input{
+	width:80px;
+}

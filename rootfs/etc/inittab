@@ -1,0 +1,10 @@
+
+#::sysinit:/bin/mount -a
+#::sysinit:/sbin/mdev -s
+
+::sysinit:/etc/init.d/rcS
+::respawn:/sbin/getty -L ttyAMA0 115200 vt100
+
+::ctrlaltdel:/sbin/reboot
+::shutdown:/bin/umount -a -r
+

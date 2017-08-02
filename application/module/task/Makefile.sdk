@@ -1,0 +1,29 @@
+LOCAL_PATH := $(call my-dir)
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET := libTaskBase.a
+LOCAL_SRCS   := $(LOCAL_PATH)/task_base.cpp
+LOCAL_CFLAGS := -Werror -fno-strict-aliasing
+LOCAL_LDFLAGS:= -lstdc++ -pthread
+LOCAL_LIBS	 := libTask.a
+
+include $(BUILD_APP)
+.PHONY: $(LOCAL_TARGET)
+$(LOCAL_TARGET):$(LOCAL_MODULE) 
+	@echo "Build $@ Done."
+$(call add-target-into-build, $(LOCAL_TARGET))
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET := libTaskRtsp.a
+LOCAL_SRCS   := $(LOCAL_PATH)/task_rtsp.cpp
+LOCAL_CFLAGS := -Werror -fno-strict-aliasing
+LOCAL_LDFLAGS:= -lstdc++ -pthread
+LOCAL_LIBS	 := libRtsp.a
+
+include $(BUILD_APP)
+.PHONY: $(LOCAL_TARGET)
+$(LOCAL_TARGET):$(LOCAL_MODULE) 
+	@echo "Build $@ Done."
+$(call add-target-into-build, $(LOCAL_TARGET))

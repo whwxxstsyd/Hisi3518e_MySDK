@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<title>IPCamera</title>
+<link type="text/css" rel="stylesheet" href="css/common.css"/>
+<style type="text/css">
+select{
+	margin-left:10px;
+	width:auto;
+}
+#MdDisplayLayer{
+	width:700px;
+	height:393px;
+	position:relative;
+	background:#89B1CF;
+}
+.MDArea_btns{
+	text-align:center;
+	height:35px;
+	width:100%;
+	background:#A6D3F4;
+}
+.MDArea_btns .common_btn{
+	margin-left:20px;
+}
+.paramName{
+	width:242px;
+}
+.MDctx{
+	display:none;
+}
+#MdAreaSelect div{
+	background-image:url(images/AlearselectBg.png);
+}
+</style>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/mdt.js"></script>
+<script type="text/javascript" src="js/areaselect.js"></script>
+</head>
+<body>
+<table class="tab_data">
+<thead>
+<th colspan="2" class="titlebar">
+<a id="save"><script>document.write(str_save)</script></a>
+<a id="refresh" href="javascript:location.reload();"><script>document.write(str_refresh)</script></a>
+</th>
+</thead>
+<tbody>
+<tr>
+<td class="paramName"><strong><script>document.write(str_status)</script></strong></td>
+<td class="paramValue">
+<ul class="switch" id="md_switch">
+<li><script>document.write(str_disable)</script></li>
+<li class="switch_icon">&nbsp;</li>
+<li><script>document.write(str_enable)</script></li>
+<div class="cb"></div>
+</ul>
+</td>
+</tr>
+<tr class="MDctx">
+<td colspan="2">
+<div id="MdDisplayLayer">
+<script type="text/javascript">		
+	var str = snapshot_path;
+	connent = '<img  id="mdsnap" width="700px" height="383px"'
+	connent += 'src="' + str + '"';
+	connent += '/>'
+	document.open();
+	document.write(connent);
+	document.write('<div style="position:absolute;top:0px;left:0px;">');
+	var maxcol  = 20;
+	var maxrow = 12;
+	AlearselectDraw(maxcol, maxrow, parseInt($('#MdDisplayLayer').css('width')), parseInt($('#MdDisplayLayer').css('height')), 'MdAreaSelect');
+	document.write('</div>');
+	document.close();
+</script>
+</div>
+<div class="MDArea_btns">
+<span class="common_btn" onclick="AreaselectSelectall()"><script>document.write(str_selectAll)</script></span>
+<span class="common_btn" onclick="AreaselectClearall()"><script>document.write(str_preset_clear)</script></span>
+</div>
+</td>
+</tr>
+<tr class="MDctx">
+<td class="paramName"><script>document.write(str_sensitivity)</script></td>
+<td class="paramValue">
+    <select id="Sensibility">
+        <option value="md_highest"><script>document.write(str_highest)</script></option>
+        <option value="md_high"><script>document.write(str_high)</script></option>
+        <option value="md_normal"><script>document.write(str_general)</script></option>
+        <option value="md_low"><script>document.write(str_low)</script></option>
+    </select>
+</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IPCamera</title>
+<link type="text/css" rel="stylesheet" href="css/ipcamera_frame_common.css"/>
+<link type="text/css" rel="stylesheet" href="css/ipcamera_module_setting.css"/>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/ddns.js"></script>
+</head>
+<body>
+<table class="tab_data">
+    <thead>
+        <th colspan="2" class="titlebar">
+            <a id="save"><script>document.write(str_save)</script></a>
+            <a id="refresh" href="javascript:location.reload();"><script>document.write(str_refresh)</script></a>
+        </th>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="paramName"><strong><script>document.write(str_builtinddns)</script></strong></td>
+            <td class="paramValue">
+                <ul class="switch" id="innerDDNS">
+                    <li><script>document.write(str_disable)</script></li>
+                    <li class="switch_icon">&nbsp;</li>
+                    <li><script>document.write(str_enable)</script></li>
+                    <div class="cb"></div>
+                </ul>
+            </td>
+        </tr>
+        <tr data="innerDDNS_item">
+          <td class="paramName"><script>document.write(str_builtinddnsurl)</script></td>
+          <td class="paramValue"><a id="innerDDNSURL" href="#" target="_blank">&nbsp;</a></td>
+        </tr>
+        <tr data="innerDDNS_item">
+        	<td class="paramName"><script>document.write(str_ddns_status)</script></td>
+					<td class="paramValue" id="innerStatus">&nbsp;</td>        	
+        </tr>
+        <!--         
+        <tr><td colspan="2">&nbsp;</td></tr>       
+        <tr>
+            <td class="paramName"><strong><script>document.write(str_thirdpartyddns)</script></strong></td>
+            <td class="paramValue">
+                <ul class="switch" id="thirdPartyDDNS">
+                    <li><script>document.write(str_disable)</script></li>
+                    <li class="switch_icon">&nbsp;</li>
+                    <li><script>document.write(str_enable)</script></li>
+                    <div class="cb"></div>
+                </ul>
+            </td>
+        </tr>
+        <tr data="thirdPartyDDNS_item">
+            <td class="paramName"><script>document.write(str_ddns_server)</script></td>
+            <td class="paramValue">
+                <select id="thirdPartyDDNSServer">
+                    <option value="dyndns.org">dyndns.org</option>
+                    <option value="3322.org">3322.org</option>
+                    <option value="dynddns.us">dynddns.us</option>
+                    <option value="No-ip.com">No-ip.com</option>
+                </select>
+            </td>
+        </tr>
+        <tr data="thirdPartyDDNS_item">
+            <td class="paramName"><script>document.write(str_username)</script></td>
+            <td class="paramValue"><input type="text" id="thirdPartyUser" maxlength="16"/></td>
+        </tr>
+        <tr data="thirdPartyDDNS_item">
+            <td class="paramName"><script>document.write(str_pwd)</script></td>
+            <td class="paramValue"><input type="password" id="thirdPartyPwd" maxlength="16"/></td>
+        </tr>
+        <tr data="thirdPartyDDNS_item">
+            <td class="paramName"><script>document.write(str_domainName)</script></td>
+            <td class="paramValue"><input type="text" id="thirdPartyDomain" maxlength="50"/></td>
+        </tr>
+      -->
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,37 @@
+LOCAL_PATH := $(call my-dir)
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET := libMotor.a
+LOCAL_SRCS   := $(LOCAL_PATH)/motor.cpp
+LOCAL_CFLAGS := -I$(MY_APP_INC)/include -Werror
+								
+LOCAL_LDFLAGS:= -lstdc++ -pthread 												
+LOCAL_LIBS	 :=  
+
+include $(BUILD_APP)
+
+.PHONY: $(LOCAL_TARGET)
+
+$(LOCAL_TARGET):$(LOCAL_MODULE)
+	@echo "Build $@ Done."
+
+$(call add-target-into-build, $(LOCAL_TARGET))
+
+#--------------------------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET := test_motor
+LOCAL_SRCS   := $(LOCAL_PATH)/test_motor.cpp
+LOCAL_CFLAGS := -I$(MY_APP_INC)/include -Werror
+								
+LOCAL_LDFLAGS:= -lstdc++ -pthread 												
+LOCAL_LIBS	 :=  libMotor.a
+
+include $(BUILD_APP)
+
+.PHONY: $(LOCAL_TARGET)
+
+$(LOCAL_TARGET):$(LOCAL_MODULE)
+	@echo "Build $@ Done."
+
+$(call add-target-into-build, $(LOCAL_TARGET))

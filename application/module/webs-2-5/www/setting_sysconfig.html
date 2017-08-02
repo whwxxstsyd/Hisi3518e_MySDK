@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IPCamera</title>
+<link type="text/css" rel="stylesheet" href="css/start/jquery-ui-1.9.2.custom.min.css"/>
+<link type="text/css" rel="stylesheet" href="css/common.css"/>
+<style type="text/css">
+.fileBox{
+	position:relative;
+	width:400px;
+}
+.fileName {
+	width: 200px;
+	display: inline-block;
+	border: 1px solid #4477a1;
+	text-overflow: ellipsis;
+	float: left;
+	margin: 5px 5px 5px 0px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+#warn_dialog,#confirm_dialog{
+	text-align:center;
+}
+.file {
+	position: absolute;
+	border: 1px solid;
+	left: 207px;
+	top: 0;
+	height: 30px;
+	margin-top: 3px;
+	filter: alpha(opacity:0);
+	opacity: 0;
+	width: 82px;
+	cursor: pointer;
+}
+</style>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<!-- <script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script> -->
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/sysconfig.js"></script>
+</head>
+<body>
+<table class="tab_data">
+<thead>
+<th colspan="2" class="titlebar">
+<a id="refresh" href="javascript:location.reload();"><script>document.write(str_refresh)</script></a>
+</th>
+</thead>
+<tbody>
+<!--
+<tr>
+<td class="paramName"><script>document.write(str_backupConfig)</script></td>
+<td class="paramValue">
+<span id="backup" class="common_btn"><script>document.write(str_btntxt_backup)</script></span>
+</td>
+</tr>
+<tr>
+<td class="paramName"><script>document.write(str_importConfig)</script></td>
+<td class="paramValue">
+<div class="fileBox">
+<form id="restore_frm" method="post" enctype="multipart/form-data" action="cgi-bin/hi3510/restore.cgi" target="submit_ifrm">
+<span class="fileName" id="restore_filename"><script>document.write(str_fileNotChoose)</script></span>
+<span class="common_btn"><script>document.write(str_btntxt_browse)</script></span>
+<input type="file" name="setting_file" id="restore_file" class="file" />
+<span class="common_btn" id="import_btn"><script>document.write(str_btntxt_import)</script></span>
+</form>
+</div>
+<form id="restore_frm" method="post" enctype="multipart/form-data" action="/cgi-bin/hi3510/restore.cgi" target="submit_ifrm">
+<ul class="select_file">
+<li class="fileCtrl"><input name="setting_file" type="file" /></li>
+<li class="fileName"><script>document.write(str_fileNotChoose)</script></li>
+<li class="common_btn" data="selectfile_btn"><script>document.write(str_btntxt_browse)</script></li>
+<li class="common_btn" id="import_btn"><script>document.write(str_btntxt_import)</script></li>
+</ul>
+</form>
+</td>
+</tr>
+-->
+<tr>
+<td class="paramName"><script>document.write(str_sysUpgrade)</script></td>
+<td class="paramValue">
+<div class="fileBox">
+<form id="upgrade_frm" method="post" enctype="multipart/form-data" action="/cgi-bin/upload.cgi" target="submit_ifrm">
+<span class="fileName" id="upgrade_filename"><script>document.write(str_fileNotChoose)</script></span>
+<span class="common_btn"><script>document.write(str_btntxt_browse)</script></span>
+<input type="file" name="setting_file" id="upgrade_file" class="file" />
+<span class="common_btn" id="upgrade_btn"><script>document.write(str_btntxt_upgrade)</script></span>
+</form>
+</div>
+</td>
+</tr>
+<tr>
+<td class="paramName"><script>document.write(str_restoreFactory)</script></td>
+<td class="paramValue">
+<span id="restore_btn" class="common_btn"><script>document.write(str_btntxt_restore)</script></span>
+</td>
+</tr>
+<tr>
+<td class="paramName"><script>document.write(str_devRestart)</script></td>
+<td class="paramValue">
+<span id="restart_btn" class="common_btn"><script>document.write(str_btntxt_restart)</script></span>
+</td>
+</tr>
+<tr>
+    <td colspan="2">
+        <div id="progressbar">
+            <div class="progress-label"><script>document.write(str_loading)</script></div>
+        </div>
+    </td>
+</tr>
+<!--  在线升级  -->	
+<tr name="online_upgrade_td" style="display:none">
+<td class="paramName">自动升级</td>
+<td class="paramValue"><span id="auto_upgrade_btn" class="common_btn">升级</span></td>
+</tr>
+<tr name="online_upgrade_td" style="display:none">
+<td class="paramName">发现固件版本</td>
+<td class="paramValue" id="online_version">&nbsp;</td>
+<tr/>
+<tr name="online_upgrade_td" style="display:none">
+<td class="paramName">新固件修改更新</td>
+<td class="paramValue" id="online_message">&nbsp;</td>
+<tr/>
+</tbody>
+</table>
+<iframe name="submit_ifrm" frameborder="0" style="display:none;"></iframe>
+<div id="warn_dialog">&nbsp;</div>
+<div id="confirm_dialog">&nbsp;</div>
+</body>
+</html>

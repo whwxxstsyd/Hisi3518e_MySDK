@@ -1,0 +1,11 @@
+prefix=/work/nfs_root/rootfs_uclibc/rtsp_server/thirdparty/libnl-3.2.23/tmp
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libnl-cli
+Description: Command Line Interface library for netlink sockets
+Version: 3.2.23
+Libs: -L${libdir} -lnl-cli-3
+Cflags: -I${includedir}
+Requires: libnl-3.0 libnl-genl-3.0 libnl-nf-3.0 libnl-route-3.0

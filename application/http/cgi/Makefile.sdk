@@ -1,0 +1,23 @@
+LOCAL_PATH := $(call my-dir)
+
+#------------------------------------------------------------
+include $(CLEAR_VARS) 
+LOCAL_TARGET	:= param.cgi
+LOCAL_SRCS		:= $(LOCAL_PATH)/cgi_param.cpp
+LOCAL_CFLAGS	:= -Werror
+LOCAL_LDFLAGS	:= -pthread
+LOCAL_LIBS		:= libHttpParser.a libSocket.a libNormal.a	\
+								 libParamOpt.a libStringParser.a
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET) 
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	mkdir -p $(ROOTFS_OUT_DIR)/cgi-bin/
+	cp -dpRf $< $(ROOTFS_OUT_DIR)/cgi-bin
+#	rm -rf $(MY_APP_DIR)/$<
+	echo "Build $@ Done" 
+	
+$(call add-target-into-build, $(LOCAL_TARGET))
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IPCamera</title>
+<link type="text/css" rel="stylesheet" href="css/ipcamera_frame_common.css"/>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/ptz.js"></script>
+</head>
+<body>
+<table class="tab_data">
+<thead>
+    <th colspan="2" class="titlebar">
+    <a id="save"><script>document.write(str_save)</script></a>
+    <a id="refresh" href="javascript:location.reload();"><script>document.write(str_refresh)</script></a>
+    </th>
+</thead>
+<tbody>
+<tr>
+	<td class="paramName"><script>document.write(str_panspeed)</script></td>
+	<td class="paramValue">
+		<select id="SpeedSel">
+		<option value="high"><script>document.write(str_fast)</script></option>
+		<option value="normal"><script>document.write(str_normal)</script></option>
+		<option value="low"><script>document.write(str_slow)</script></option>
+		</select>
+	</td>
+</tr>
+<tr>																					
+	<td class="paramName"><script>document.write(str_start_pos)</script></td>
+	<td class="paramValue">
+		<select id="StartPosSel">
+		<option value="0"><script>document.write(str_at_center)</script></option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>						
+		</select>
+	</td>
+</tr>
+<tr>
+	<td class="paramName"><script>document.write(str_cruiseLaps)</script></td>
+	<td class="paramValue"><input type="text" id="CircleCnt"></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,327 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background:none;
+}
+#ctrPanel,.video,#sysset .menuPanel,.sysset_ctx{
+	float:right;
+	height:580px;
+	display:block;
+}
+#ctrPanel{
+	width:190px;
+	margin-left:10px;
+	margin-top:5px;
+}
+#ctrPanel ul.switch{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.multiDev{
+	border-bottom:1px solid #135a79;
+}
+.multiDev ul{
+	padding-top:5px;
+	padding-bottom:10px;
+}
+.multiDev li{
+	background:url(../images/admin_multiDev_btns.png) no-repeat;
+	float:left;
+	width:37px;
+	height:29px;
+	cursor:pointer;
+}
+li.multi_1,li.multi_4{
+	margin-right:36px;
+}
+.multiDev li.multi_1{
+	background-position: 0px 0px;
+}
+.multiDev li.multi_1_curr{
+	background-position: 0px -90px;
+}
+.multiDev li.multi_4{
+	background-position: 0px -30px;
+}
+.multiDev li.multi_4_curr{
+	background-position: 0px -120px;
+}
+.multiDev li.multi_9{
+	background-position: 0px -60px;
+}
+.multiDev li.multi_9_curr{
+	background-position: 0px -150px;
+}
+ul.input_group{
+	padding:5px 0px;
+}
+ul.input_group span{
+	display:inline-block;
+	width:80px;
+	text-align:right;
+}
+ul.input_group select{
+	width:100px;
+}
+#ptz{
+	height:180px;
+	margin:5px auto;
+}
+.menuPanel{
+	width:190px;
+}
+.menuPanel dl{
+	text-align:center;
+}
+.menuPanel dt,.menuPanel dd{width:100%;}
+.menuPanel dt{
+	color:#FFF;
+	height:35px;
+	line-height:35px;
+	cursor:pointer;
+	background:url(../images/admin_videoWatch_menuPanel_btn.png) no-repeat 0 0;
+}
+.menuPanel dd{display:none;}
+.led ul.switch{margin:10px auto;}
+#sysset{
+	left:1142px;
+}
+#sysset .menuPanel{
+	margin-right:10px;
+}
+.sysset_ctx{
+	width:936px;
+}
+#sysset .menuPanel dd{
+	margin:10px 0;
+}
+#sysset .menuPanel dd a:hover{
+	font-weight:bold;
+}
+.menuPanel dt:hover{
+	background-position:0 -35px;
+}
+#patrol dd{
+	background:url(../images/admin_videoWatch_patrol_btns.png) no-repeat;
+	width:41px;
+	height:30px;
+	float:left;
+	margin:10px 0 10px 10px;
+	cursor:pointer;
+	display:block;
+}
+#patrol dd#patrol_h{background-position: 0px -30px;margin-left:25px;}
+#patrol dd#patrol_stop{background-position: 0px -60px;}
+#preset dd{
+	margin:10px 0;
+}
+#preset span{
+	height:22px;
+	line-height:22px;
+	text-align:center;
+	color:#FFF;
+	display:inline-block;
+	cursor:pointer;
+}
+span.preval{
+	width:22px;
+	margin:3px 10px;
+	background:url(../images/admin_videoWatch_preset_numBtns.png) no-repeat;
+}
+span.preval:hover,span.currpreval{
+	background-position:center -22px;
+}
+span.currpreval{
+	color:#000;
+}
+span.presetBtn{
+	width:54px;
+	background:url(../images/admin_videoWatch_presetBtn.png) no-repeat 0 0px;
+}
+span.presetBtn:hover{
+	background-position:center -22px;
+}
+#screenAdj dd{
+	margin:10px 0;
+}
+#screenAdj dd span{
+	width:22px;
+	height:22px;
+	float:left;
+	margin-top:-4px;
+	cursor:pointer;
+}
+#screenAdj span.brightness_icon{
+	background:url(../images/admin_videoWatch_screenBtns.png) no-repeat;
+}
+#screenAdj dd span.contrast_icon{
+	background:url(../images/admin_videoWatch_screenBtns.png) no-repeat 0 -22px;
+}
+#screenAdj dd span.hue_icon{
+	background:url(../images/admin_videoWatch_screenBtns.png) no-repeat 0 -45px;
+}
+#screenAdj dd span.saturation_icon{
+	background:url(../images/admin_videoWatch_screenBtns.png) no-repeat 0 -72px;
+}
+#screenAdj dd span.sharpness_icon{
+	background:url(../images/admin_videoWatch_screenBtns.png) no-repeat 0 -94px;
+}
+.slider{
+	width:115px;
+	float:left;
+	margin: 0px 13px;
+}
+#snap{background-position:0px -120px}
+#record{background-position:0px -150px}
+#talk{background-position:0px -60px}
+#audio{background-position:0px -90px}
+.video{
+	margin-top:5px;
+	width:936px;
+	overflow:hidden;
+}
+span.tooltips{
+	font-size:14px;
+	font-weight:bold;
+	color:#fff;
+	margin-left:10px;
+	margin-top:-5px;
+	display:none;
+}
+span.tooltips a{
+	font-size:14px;
+	font-weight:bold;
+	color:#fff;
+}
+ul.tools{
+	margin-top:5px;
+}
+.toolbar_wrap{
+	/*margin-top:5px;*/
+	height:36px;/*40px*/
+	line-height:36px;/*40px*/
+}
+.toolbar_wrap li{
+	float:left;
+}
+li.toolbar_left{
+	background:url(../images/admin_toolbar_left_bg.png) no-repeat;
+	width:4px;
+}
+li.toolbar_center{
+	background:url(../images/admin_toolbar_center_bg.png);
+	width:927px;
+	height:36px;/*40px*/
+}
+li.toolbar_center ul{
+	float:right;
+}
+li.toolbar_center li{
+	width:30px;
+	margin-right:20px;
+	background:url(../images/admin_videoWatch_btnPanel_btns.png) no-repeat;
+	height:30px;
+	cursor:pointer;
+}
+li.toolbar_center li#path_btn{
+	background-position: 0 -545px;
+}
+li.toolbar_center li#snap_btn{
+	background-position: 0 -120px;
+}
+li.toolbar_center li#SD_btn{
+	background-position: 0 -510px;
+}
+li.toolbar_center li#zoomin_btn{
+	background-position: 0 -450px;
+}
+li.toolbar_center li#zoomout_btn{
+	background-position: 0 -480px;
+}
+li.toolbar_center li#talk_btn{
+	background-position: 0 -60px;
+}
+li.toolbar_center li#audio_btn{
+	background-position: 0 -90px;
+}
+li.toolbar_center li#record_btn{
+	background-position: 0 -150px;
+}
+li.toolbar_center li#fullscreen_btn{
+	background-position: 0 -180px;
+}
+li.toolbar_right{
+	background:url(../images/admin_toolbar_right_bg.png) no-repeat;
+	width:5px;
+}
+#screenAdj .defaultBtn{
+	height: 22px;
+	line-height: 22px;
+	text-align: center;
+	color: #FFF;
+	display: inline-block;
+	cursor: pointer;
+	float:none;
+}
+#screenAdj .defaultBtn:hover{
+	background-position: center -22px;
+}
+#screenAdj .defaultBtn{
+	width: 54px;
+	background: url(../images/admin_videoWatch_presetBtn.png) no-repeat 0 0px;
+}
+.sidebar,.playarea{
+	display:inline-block;
+	height:580px;
+	border:0px solid;
+	float:left;
+}
+.sidebar{
+	width:230px;
+	margin-right:10px;
+	padding:0 10px;
+}
+.sidebar ul.input_group{
+	border:1px solid #4477a1;
+}
+.sidebar ul.input_group span{
+	margin-right:10px;
+}
+.sidebar ul.input_group select{
+	width:120px;
+}
+.sidebar ul.input_group input{
+	width:116px;
+	cursor:pointer;
+}
+.search_result{
+	height:440px;
+	border:1px solid #4477a1;
+}
+.playarea{
+	width:875px;
+}
+.playback_video{
+	width:100%;
+	height:520px;
+	background-color:#A2C4DD;
+	margin-bottom:10px;
+}
+.playarea .toolbar_center{
+	width:866px;
+}
+.tools_btn{
+	display:inline-block;
+	height:30px;
+	line-height:30px;
+	width:30px;
+	background:url(../images/admin_videoWatch_btnPanel_btns.png) no-repeat;
+	cursor:pointer;
+	margin:0 10px;
+}
+.videoPlay{
+	/* 视频播放宽度：544 高度：936 */
+	height:544px;						
+	/*width:936px;*/
+	background:#000;
+}

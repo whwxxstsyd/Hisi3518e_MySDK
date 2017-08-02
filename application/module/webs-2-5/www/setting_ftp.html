@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IPCamera</title>
+<link type="text/css" rel="stylesheet" href="css/ipcamera_frame_common.css"/>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/ftp.js"></script>
+<style type="text/css">
+.moreSet_ctx{
+	display:none;
+}
+.td_btn{
+	text-align:center;
+	background-color:#79bfe4;
+}
+</style>
+</head>
+<body>
+<table class="tab_data">
+    <thead>
+        <th colspan="2" class="titlebar">
+            <a id="save"><script>document.write(str_save)</script></a>
+            <a id="refresh" href="javascript:location.reload();"><script>document.write(str_refresh)</script></a>
+        </th>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="paramName"><script>document.write(str_ftpserver)</script></td>
+            <td class="paramValue"><input type="text" id="ftpserver" /></td>
+        </tr>
+        <tr>
+            <td class="paramName"><script>document.write(str_ftpusername)</script></td>
+            <td class="paramValue"><input type="text" id="ftpusername" /></td>
+        </tr>
+        <tr>
+            <td class="paramName"><script>document.write(str_ftpuserpwd)</script></td>
+            <td class="paramValue"><input type="password" id="ftpuserpwd"/></td>
+        </tr>
+        <tr>
+            <td class="paramName"><strong><script>document.write(str_moreSet)</script></strong></td>
+            <td class="paramValue">
+                <ul class="switch" id="moreSet_switch">
+                    <li><script>document.write(str_disable)</script></li>
+                    <li class="switch_icon">&nbsp;</li>
+                    <li><script>document.write(str_enable)</script></li>
+                    <div class="cb"></div>
+	            </ul>
+            </td>
+        </tr>
+        <tr class="moreSet_ctx">
+            <td class="paramName"><script>document.write(str_dirpath)</script></td>
+            <td class="paramValue"><input type="text" id="dirpath"/></td>
+        </tr>
+        <tr class="moreSet_ctx">
+            <td class="paramName"><script>document.write(str_port)</script></td>
+            <td class="paramValue"><input type="text" id="ftpport"/></td>
+        </tr>
+        <tr class="moreSet_ctx">
+            <td class="paramName"><script>document.write(str_pasvmode)</script></td>
+            <td class="paramValue">
+                <ul class="switch" id="pasvmode_switch">
+                    <li><script>document.write(str_disable)</script></li>
+                    <li class="switch_icon">&nbsp;</li>
+                    <li><script>document.write(str_enable)</script></li>
+                    <div class="cb"></div>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="td_btn">
+                <span id="ftpTest" class="common_btn"><script>document.write(str_btntxt_ftpTest)</script></span>
+                <span id="clear" class="common_btn" style="margin-left:24px"><script>document.write(str_btntxt_clear)</script></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div id="confirmation">&nbsp;</div>
+</body>
+</html>

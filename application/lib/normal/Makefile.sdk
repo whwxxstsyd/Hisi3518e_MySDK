@@ -1,0 +1,20 @@
+LOCAL_PATH := $(call my-dir)
+
+#------------------------------------------------
+include $(CLEAR_VARS)
+LOCAL_TARGET	:= libNormal.a
+LOCAL_SRCS		:= $(LOCAL_PATH)/normal.c
+LOCAL_CFLAGS	:= -Werror
+LOCAL_LDFLAGS	:= -lstdc++ -pthread
+LOCAL_LIBS		:= libMd5.a libSocket.a 
+
+include $(BUILD_APP)
+
+.PHONY:	$(LOCAL_TARGET)
+
+$(LOCAL_TARGET): $(LOCAL_MODULE)
+	@echo "Build $@ Done"
+	
+$(call add-target-into-build, $(LOCAL_TARGET))
+
+	
