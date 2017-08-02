@@ -1,0 +1,42 @@
+#ifndef		__THR_DDNS_H__
+#define		__THR_DDNS_H__
+
+typedef enum DDNS_FUNC_T
+{
+	DDNS_SUPPORT_NO,
+	DDNS_SUPPORT_WILDCARD,
+	DDNS_SUPPORT_MX,
+	DDNS_SUPPORT_OFFLINE
+}DDNS_FUNC;
+
+typedef enum DDNS_ERR_CODE_T
+{
+  UPDATERES_OK = 0,
+  UPDATERES_PARAM_ERR,
+  UPDATERES_CONNECT_SVR_ERR,
+  UPDATERES_NET_ERR,
+  UPDATERES_SVR_NO_RESPONSE,
+  UPDATERES_INVALID_HOSTNAME,
+  UPDATERES_NOT_FQND,
+  UPDATERES_NOT_YOURS,
+  UPDATERES_ABUSE,
+  UPDATERES_AUTHENTICATION_FAILURE,
+  UPDATERES_INVALID_PARAMETER,
+  UPDATERES_BAD_AGENT,
+  UPDATERES_ERR_NUMBER_HOST,
+  UPDATERES_DNS_ERR,
+  UPDATERES_DONATOR,
+  UPDATERES_SHUTDOWN
+}DDNS_ERR_CODE;
+
+
+int ddns_update_entry(const char *server,
+						 const char *host,
+						 const char *userName,
+						 const char *passWord,
+						 const char *ip,
+						 int port,
+						 const char *request,
+						 int   ddnsFun);
+
+#endif
